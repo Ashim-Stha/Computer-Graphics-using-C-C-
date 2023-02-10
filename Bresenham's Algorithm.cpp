@@ -8,14 +8,14 @@ using namespace std;
 
 int main(){
 	initwindow(400,400);
-	int x1,y1,x2,y2,i,lx,ly,x,y,p;
+	int x1,y1,x2,y2,i,lx,ly;
 	cout<<"Enter start coordinates: "<<endl;
 	cin>>x1>>y1;
 	cout<<"Enter end coordinates: "<<endl;
 	cin>>x2>>y2;
 	
-	x=x1;
-	y=y1;
+	int x=x1;
+	int y=y1;
 	int dx = abs(x2-x1);
 	int dy = abs(y2-y1);
 //	float k = dy/dx;
@@ -38,7 +38,7 @@ int main(){
 	putpixel(x,y,RED);
 	
 	if(dx>dy){
-		p = 2*dy-dx;
+		int p = 2*dy-dx;
 		
 		for(i=0;i<dx;i++){
 		if(p>0){
@@ -53,11 +53,12 @@ int main(){
 			p=p+2*dy;
 		}
 		putpixel(x,y,RED);
+		delay(50);
 	}
 	}
 	else
 	{
-		p = 2*dx-dy;
+		int p = 2*dx-dy;
 		
 		for(i=0;i<dy;i++){
 		if(p>0){
@@ -68,10 +69,16 @@ int main(){
 		else{
 			x=x;
 			y=y+ly;
+			p=p+2*dx;
 		}
 		putpixel(x,y,RED);
+		delay(50);
 	}
 	}
+	
+	//line(150,100,250,250);
+//	line(300,150,150,200);
+//line(300,200,100,50);
 	
 	getch();
 	closegraph();
